@@ -22,7 +22,7 @@ class Person(models.Model):
         'self',
         null=True,
         on_delete=models.CASCADE,
-        blank=True
+        blank=True,
     )
     name = models.CharField('이름', max_length=60)
     shirt_size = models.CharField(
@@ -31,20 +31,3 @@ class Person(models.Model):
         choices=SHIRT_SIZES,
         help_text='남자는 L쓰세요',
     )
-
-class ManuFacturer(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-
-class Car(models.Model):
-    name = models.CharField(max_length=40)
-    manufacturer = models.ForeignKey(
-        ManuFacturer,
-        on_delete=models.CASCADE,
-    )
-
-    def __str__(self):
-        return self.name
